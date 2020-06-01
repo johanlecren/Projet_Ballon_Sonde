@@ -1,6 +1,9 @@
 /**
   * @file       msdcard.cpp
   * @brief      Implémentation de la classe Msdcard
+  *             Détection de la présence d'une carte mSd
+  *             opération de création et d'écriture dans un fichier texte
+  *             opération d'ajout de données dans un fichier texte
   * @version    1.1
   * @author     Johan Le Cren
   * @date       20 avril 2020
@@ -37,7 +40,7 @@ Msdcard::Msdcard(uint8_t sckPin, uint8_t misoPin, uint8_t mosiPin, uint8_t ssPin
 bool Msdcard::begin() {
   bool erreurCarte = false;
 
-  if (!SD.begin(SD_CS, SPI, 40000000, "/sd")) {
+  if (!SD.begin(SD_CS, SPI, 40000000, "/sd")) {   //initialise l'accès à la carte mSd
     Serial.println("échec du montage de la carte SD");
     erreurCarte = true;
   }
@@ -48,7 +51,7 @@ bool Msdcard::begin() {
       erreurCarte = true;
     }
     else {
-      switch (cardType) {
+      switch (cardType) {                       //identifie le type de carte
         case CARD_MMC: Serial.println("MMC");
           break;
         case CARD_SD: Serial.println("SDSC");
@@ -57,7 +60,7 @@ bool Msdcard::begin() {
           Serial.println("SDHC");
           break;
       }
-      uint64_t cardSize = SD.cardSize() / (1024 * 1024);
+      uint64_t cardSize = SD.cardSize() / (1024 * 1024);      //affiche la taille en Mo
       Serial.printf("Taille de la carte SD: %lluMB\n", cardSize);
     }
   }

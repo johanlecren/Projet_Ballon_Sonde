@@ -1,6 +1,9 @@
 /**
   * @file       sigfox.cpp
   * @brief      Implémentation de la classe Sigfox
+  *             Assure la conversion des octets en chaine de caractères hexadécimal
+  *             Réalise l'émission radio vers le modem Sigfox en commande AT
+  *             Vérifie que la trame est bien envoyée
   * @version    1.1
   * @author     Johan Le Cren
   * @date       20 avril 2020
