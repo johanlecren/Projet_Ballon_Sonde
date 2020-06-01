@@ -322,7 +322,7 @@ const char MAIN_page[] PROGMEM = R"=====(
 
 #tPosLa
 {
-  color: black;
+  color: red;
   font-family: verdana;
   font-size: 400%; 
   position: absolute;
@@ -331,7 +331,7 @@ const char MAIN_page[] PROGMEM = R"=====(
 
 #tPosLo
 {
-  color: black;
+  color: red;
   font-family: verdana;
   font-size: 400%; 
   position: absolute;
@@ -406,10 +406,12 @@ const char MAIN_page[] PROGMEM = R"=====(
                                 values[2];
                         document.getElementById("Rad").innerHTML =
                                 values[3];
-                        document.getElementById("Pos").innerHTML =
+                        document.getElementById("PosLat").innerHTML =
                                 values[4];
-                        document.getElementById("Alt").innerHTML =
+                        document.getElementById("PosLong").innerHTML =
                                 values[5];
+                        document.getElementById("Alt").innerHTML =
+                                values[6];
                     }
                 };
                 xhttp.open("GET", "Value", true);     //envoie Value au serveur WEB avec la methode GET
@@ -440,8 +442,8 @@ const char MAIN_page[] PROGMEM = R"=====(
         <h2 id="tPress">Pression(hPa): <span id="Pression"></span></h2> 
         <h2 id="tHum">Humidite(%): <span id="Hum"></span></h2> 
         <h2 id="tRad">Radiation(uSvh): <span id="Rad"></span></h2> 
-        <h2 id="tPosLa">Latitude(Deg Dec): <span id="Pos"></span></h2> 
-        <h2 id="tPosLo">Longitude(Deg Dec): <span id="Pos"></span></h2> 
+        <h2 id="tPosLa">Latitude(Deg Dec): <span id="PosLat"></span></h2> 
+        <h2 id="tPosLo">Longitude(Deg Dec): <span id="PosLong"></span></h2> 
         <h2 id="tAlt">Altitude(m): <span id="Alt"></span></h2> 
         <h1 id="tnbM" >Nb de message envoyés manuellement: <span id="Envoi">0</span> </h1>
     </div>

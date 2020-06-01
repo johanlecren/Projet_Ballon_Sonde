@@ -134,7 +134,7 @@ void pageIndex() {
 
 void pageMesures() {                  
   Serial.println("requete GET / mesures");
-  String position = String (carteSd.latitude) + ";" + String (carteSd.longitude);
+  String position = String (carteSd.latitude,6) + ";" + String (carteSd.longitude,6);
   //envoi des données au serveur
   server.send ( 200, "text/plain", String(carteSd.temperature) + ";" + String(carteSd.pression) + ";" + String(carteSd.humidite) + ";" + String(carteSd.impulsions / RAPPORT_USVH) + ";" + String(position) + ";" + String(carteSd.altitude)); // le serveur envoi les données  
 }
